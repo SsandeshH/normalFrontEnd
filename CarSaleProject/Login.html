@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Car Sale</title>
+    <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="SellerPage.html" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p>Don't have an account? <a href="register.html">Register Here</a></p>
+        </form>
+    </div>
+</body>
+<script>
+
+
+    // Validate form fields for empty inputs
+function validateForm(formId) {
+    const form = document.getElementById(formId);
+    const inputs = form.querySelectorAll('input[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === '') {
+            isValid = false;
+        } else {
+            input.style.backgroundColor = 'white';
+        }
+    });
+
+    if (!isValid) {
+        alert("Please fill in all required fields.");
+    }
+
+    return isValid;
+}
+
+
+// Change background to yellow when focused
+function focusInput(event) {
+    event.target.style.backgroundColor = 'yellow';
+}
+
+// Change background to red when blurred
+function blurInput(event) {
+    event.target.style.backgroundColor = 'white';
+}
+
+// Attach focus and blur events to all input fields
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('focus', focusInput);
+    input.addEventListener('blur', blurInput);
+});
+
+</script>
+</html>

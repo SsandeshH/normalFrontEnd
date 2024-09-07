@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Online Car Sale</title>
+    <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+    <div class="formDiv">
+    <div class="form-container">
+        <h2>Register</h2>
+        <form action="HomePage.html" method="POST"> <!-- added method POST for later expansion of site and to connect it to database server in case i decide to further work on this project -->
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn" onclick="redirectt()">Register</button>
+            <p>Already have an account? <a href="login.html">Login Here</a></p>
+        </form>
+    </div>
+</div>
+</body>
+
+<script>
+ // Validate form fields for empty inputs
+    function validateForm(formId) {
+        const form = document.getElementById(formId);
+        const inputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+    
+        inputs.forEach(input => {
+            if (input.value.trim() === '') {
+                isValid = false;
+            } else {
+                input.style.backgroundColor = 'white';
+            }
+        });
+    
+        if (!isValid) {
+            alert("Please fill in all required fields.");
+        }
+    
+        return isValid;
+    }
+    
+    
+    // Change background to yellow when focused
+    function focusInput(event) {
+        event.target.style.backgroundColor = 'yellow';
+    }
+    
+    // Change background to red when blurred
+    function blurInput(event) {
+        event.target.style.backgroundColor = 'white';
+    }
+    
+    // Attach focus and blur events to all input fields
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', focusInput);
+        input.addEventListener('blur', blurInput);
+    });
+
+</script>
+</html>
